@@ -8,9 +8,10 @@ const hostname = 'localhost'
 const port = 4000
 const api_path = '/api'
 
-const gloss = require('./data/gloss') // 1 gloss
-const gloss_set = require('./data/gloss_set') // 3 glosses
-const gloss_set_bulk = require('./data/gloss_set_bulk') // 6 glosses
+const data_path = '../sample_data'
+const gloss = require(data_path + '/gloss') // 1 gloss
+const gloss_set = require(data_path + '/gloss_set') // 3 glosses
+const gloss_set_bulk = require(data_path + '/gloss_set_bulk') // 6 glosses
 
 const r = (method, path, body) => {
   log.step(method, path)
