@@ -29,4 +29,13 @@ defmodule Glossmos.Gloss do
 
   def add_key(cs, key), do: change cs, key: key
   def gen_key(), do: Ecto.UUID.generate()
+
+  def invalid_changeset(cs_list), do: cs_list |> Enum.find(&(!&1.valid?))
+
+  def insert_all([next| tail]), do: next |> Repo.insert |> _insert_all([], tail)
+  defp _insert_all({:error, _} = res, _, _), do: res
+  defp _insert_all({:ok, cs}, acc, []), do: {:ok, [cs | acc]}
+  defp _insert_all({:ok, cs}, acc, [next | tail]) do
+    next |> Repo.insert |> _insert_all([cs| acc], tail)
+  end
 end
