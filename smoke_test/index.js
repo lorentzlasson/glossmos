@@ -3,10 +3,7 @@ const requester = require('./requester')
 const state = require('./state')
 const util = require('./util')
 const log = require('./logger')
-
-const hostname = 'localhost'
-const port = 4000
-const api_path = '/api'
+const config = require('./config')
 
 const data_path = '../sample_data'
 const gloss = require(data_path + '/gloss') // 1 gloss
@@ -16,7 +13,11 @@ const gloss_set_bulk = require(data_path + '/gloss_set_bulk') // 6 glosses
 const r = (method, path, body) => {
   log.step(method, path)
 
-  const req = requester(hostname, port, api_path)
+  const req = requester(
+    config.hostname,
+    config.port,
+    config.api_path
+  )
   return req(method, path, body)
 }
 
