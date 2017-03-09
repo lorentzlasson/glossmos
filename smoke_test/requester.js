@@ -1,4 +1,5 @@
 const http = require('http')
+const log = require('./logger')
 
 http.ClientRequest.prototype.try_write = function(body) {
   if(body) {
@@ -25,6 +26,8 @@ const result = statusCode => {
 
 const requester = (hostname, port, api_path) => {
   return (method, path, body) => {
+    log.step(method, path)
+
     return new Promise((resolve, reject) => {
       http.request({
         hostname,

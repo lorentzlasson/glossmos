@@ -10,16 +10,11 @@ const gloss = require(data_path + '/gloss') // 1 gloss
 const gloss_set = require(data_path + '/gloss_set') // 3 glosses
 const gloss_set_bulk = require(data_path + '/gloss_set_bulk') // 6 glosses
 
-const r = (method, path, body) => {
-  log.step(method, path)
-
-  const req = requester(
-    config.hostname,
-    config.port,
-    config.api_path
-  )
-  return req(method, path, body)
-}
+const r = requester(
+  config.hostname,
+  config.port,
+  config.api_path
+)
 
 r('DELETE', '/gloss/all')
 .then(res => {
