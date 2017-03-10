@@ -9,6 +9,8 @@ http.ClientRequest.prototype.try_write = function(body) {
   return this
 }
 
+const is_success = status_code => status_code == 200
+
 const result = statusCode => {
   let data = null
   return {
@@ -18,7 +20,7 @@ const result = statusCode => {
     collect: () => {
       return {
         statusCode,
-        body: JSON.parse(data)
+        body: is_success(statusCode) ? JSON.parse(data): null
       }
     }
   }
