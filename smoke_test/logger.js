@@ -26,15 +26,20 @@ const error = e => {
 
 const success = () => {
   separate()
-  console.log('Test run succeeded')
+  console.log('Test run succeeded\n')
 }
 
 const step = (m, p) => {
   console.log(`[${m}\t${p}]`)
 }
 
+const flow = name => {
+  console.log(`### ${name} ###`)
+}
+
 module.exports = {
   error,
   success,
-  step
+  step,
+  flow
 }

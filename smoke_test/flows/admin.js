@@ -16,6 +16,9 @@ const r = requester(
   config.api_path
 )
 
+log.flow('Administration')
+
+module.exports =
 r('DELETE', '/gloss/all')
 .then(res => {
   asserter(res)
