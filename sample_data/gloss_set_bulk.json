@@ -26,5 +26,33 @@
       "text":"mostaza",
       "language":"es"
     }
+  ],
+  [
+    {
+      "text":"play the violin",
+      "language":"en"
+    },
+    {
+      "text":"spela fiol",
+      "language":"sv"
+    },
+    {
+      "text":"jouer du violon",
+      "language":"fr"
+    }
+  ],
+  [
+    {
+      "text":"pengiun",
+      "language":"en"
+    },
+    {
+      "text":"pingvin",
+      "language":"sv"
+    },
+    {
+      "text":"manchot",
+      "language":"fr"
+    }
   ]
 ]

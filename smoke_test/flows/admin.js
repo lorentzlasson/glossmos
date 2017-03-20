@@ -8,7 +8,7 @@ const config = require('../config')
 const data_path = '../../sample_data'
 const gloss = require(data_path + '/gloss') // 1 gloss
 const gloss_set = require(data_path + '/gloss_set') // 3 glosses
-const gloss_set_bulk = require(data_path + '/gloss_set_bulk') // 6 glosses
+const gloss_set_bulk = require(data_path + '/gloss_set_bulk') // 12 glosses
 
 const r = requester(
   config.hostname,
@@ -87,21 +87,21 @@ r('DELETE', '/gloss/all')
 .then(res => {
   asserter(res)
   .ok_status()
-  .body_length(4)
+  .body_length(6)
 
   return r('GET', '/gloss')
 })
 .then(res => {
   asserter(res)
   .ok_status()
-  .body_length(10)
+  .body_length(16)
 
   return r('DELETE', '/gloss/all')
 })
 .then(res => {
   asserter(res)
   .ok_status()
-  .body_equals({count: 10})
+  .body_equals({count: 16})
 })
 .then(log.success)
 .catch(log.error)

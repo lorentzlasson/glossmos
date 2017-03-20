@@ -4,7 +4,7 @@ const log = require('../logger')
 const config = require('../config')
 
 const data_path = '../../sample_data'
-const gloss_set_bulk = require(data_path + '/gloss_set_bulk') // 6 glosses
+const gloss_set_bulk = require(data_path + '/gloss_set_bulk') // 12 glosses
 
 const r = requester(
   config.hostname,
